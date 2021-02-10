@@ -25,4 +25,5 @@ extern int    json_west_y;
 extern int    json_trip_point;    // Trip point in mV
 extern int    json_name_id;       // Name Identifier
 extern int    json_1_ring_x10;    // Size of 1 ring in mmx10
+extern int    json_LED_PWM;       // PWM Setting (%)
 #endif _JSON_H_

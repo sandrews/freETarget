@@ -8,31 +8,6 @@
 #include "nonvol.h"
 #include "freeTarget.h"
 #include "json.h"
-
-/*----------------------------------------------------------------
- *
- * void reinit_nonvol()
- * 
- * Reinitialize the nonvol storage
- * 
- *---------------------------------------------------------------
- *
- *  Force the init to a bad value and then do a read_nonvol
- *  
- *------------------------------------------------------------*/
- void reinit_nonvol(void)
- {
-    int nonvol_init = 0;                    // Corrupt the semephore
-    EEPROM.put(NONVOL_INIT, nonvol_init);
-    
-    read_nonvol();                          // Regen the numbers
-    Serial.print("\r\nReset to factory defaults\r\n");
-    show_echo();
- /*
-  * Nothing more to do, return
-  */
-    return;
- }
  
 /*----------------------------------------------------------------
  * 
@@ -52,9 +27,10 @@ void init_nonvol(void)
 
   nonvol_init = 0;                        // Corrupt the init location
   EEPROM.put(NONVOL_INIT, nonvol_init);
+  Serial.print("\r\nReset to factory defaults\r\n");
   read_nonvol();                          // Force in new values
   show_echo();                            // Display these settings
-  
+  test_cal();
 /*
  * All done, return
  */
@@ -96,7 +72,9 @@ void read_nonvol(void)
     EEPROM.put(NONVOL_TEST_MODE, json_test);
     json_calibre_x10 = 45;
     EEPROM.put(NONVOL_CALIBRE_X10, json_calibre_x10);
-
+    json_LED_PWM = 50;
+    EEPROM.put(NONVOL_LED_PWM, json_LED_PWM);
+    
     gen_position();    
 
     if ( read_DIP() & BOSS )
@@ -125,6 +103,7 @@ void read_nonvol(void)
   EEPROM.get(NONVOL_DIP_SWITCH, json_dip_switch);     // Read the nonvol settings
   EEPROM.get(NONVOL_SENSOR_DIA, json_sensor_dia);
   EEPROM.get(NONVOL_TEST_MODE,  json_test);
+  EEPROM.get(NONVOL_LED_PWM,    json_LED_PWM);
   
   EEPROM.get(NONVOL_PAPER_TIME, json_paper_time);
   if ( (json_paper_time * PAPER_STEP) > (PAPER_LIMIT) )

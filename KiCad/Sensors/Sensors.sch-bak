@@ -371,14 +371,4 @@ Wire Wire Line
 Connection ~ 7500 5650
 Wire Wire Line
 	7500 5650 8800 5650
-Wire Notes Line
-	7100 4450 7100 5200
-Wire Notes Line
-	7100 5200 8150 5200
-Wire Notes Line
-	8150 5200 8150 4450
-Wire Notes Line
-	8150 4450 7100 4450
-Text Notes 7100 4400 0    50   ~ 0
-NEW
 $EndSCHEMATC

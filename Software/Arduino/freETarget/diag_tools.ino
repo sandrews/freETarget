@@ -28,6 +28,21 @@ void set_trip_pt(void){self_test(T_SET_TRIP);}
 
 /*----------------------------------------------------------------
  *
+ * void test_cal
+ *
+ * EInitialize board and start calibration
+ *
+ *----------------------------------------------------------------
+ *   
+ *--------------------------------------------------------------*/
+void test_cal (void)
+{
+  self_test(T_SET_TRIP);
+  return;
+}
+
+/*----------------------------------------------------------------
+ *
  * void self_test
  *
  * Execute self tests based on the jumper settings

@@ -15,13 +15,12 @@
  * 
  * Initialize the analog I/O
  * 
- *----------------------------------------------------------------
- */
+ *--------------------------------------------------------------*/
 void init_analog_io(void)
 {
     
-  pinMode(REF_OUT, OUTPUT);
-  analogWrite(REF_OUT, 0);  // Prime the PWM
+  pinMode(LED_PWM, OUTPUT);
+  analogWrite(LED_PWM, 0);  // Prime the PWM
   Wire.begin();
   
 /*
@@ -30,6 +29,25 @@ void init_analog_io(void)
   return;
 }
 
+/*----------------------------------------------------------------
+ * 
+ * void set_LED_PWM()
+ * 
+ * Program the PWM value
+ * 
+ *--------------------------------------------------------------*/
+void set_LED_PWM(void)
+{
+  unsigned int value;
+
+  value = json_LED_PWM * 256 / 100;
+  analogWrite(LED_PWM, value);  // Prime the PWM
+  
+/*
+ * All done, begin the program
+ */
+  return;
+}
 /*----------------------------------------------------------------
  * 
  * unsigned int read_feedback(void)

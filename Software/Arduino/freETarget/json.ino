@@ -31,6 +31,7 @@ int     json_west_y;
 int     json_trip_point;            // Detection trip point in mV
 int     json_name_id;               // Name identifier
 int     json_1_ring_x10;            // Size of the 1 ring in mm
+int     json_LED_PWM;               // LED control value 
 
 #define IS_VOID    0
 #define IS_INT16   1
@@ -60,7 +61,7 @@ static json_message JSON[] = {
   {"\"CALIBREx10\":",     &json_calibre_x10,                 0,                IS_INT16,  0,             NONVOL_CALIBRE_X10 },    //  1
   {"\"DIP\":",            &json_dip_switch,                  0,                IS_INT16,  0,             NONVOL_DIP_SWITCH  },    //  2
   {"\"ECHO\":",           &json_echo,                        0,                IS_INT16,  &show_echo,                    0  },    //  3
-  {"\"INIT\":",           0,                                 0,                IS_VOID,   &reinit_nonvol,                0  },    //  4  
+  {"\"INIT\"",            0,                                 0,                IS_VOID,   &init_nonvol,                  0  },    //  4  
   {"\"PAPER\":",          &json_paper_time,                  0,                IS_INT16,  0,             NONVOL_PAPER_TIME  },    //  5
   {"\"SENSOR\":",         0,                                 &json_sensor_dia, IS_FLOAT,  &gen_position, NONVOL_SENSOR_DIA  },    //  6
   {"\"TEST\":",           &json_test,                        0,                IS_INT16,  &show_test,    NONVOL_TEST_MODE   },    //  7
@@ -75,6 +76,8 @@ static json_message JSON[] = {
   {"\"TRIP_POINT\":",     &json_trip_point,                  0,                IS_INT16,  &set_trip_pt,  NONVOL_TRIP_POINT  },    // 16
   {"\"NAME_ID\":",        &json_name_id,                     0,                IS_INT16,  &show_names,   NONVOL_NAME_ID     },    // 17
   {"\"TRGT_1_RINGx10\":", &json_1_ring_x10,                  0,                IS_INT16,  0,             NONVOL_1_RINGx10   },    // 18
+  {"\"CAL\"",             0,                                 0,                IS_INT16,  &test_cal,                     0  },    // 19
+  {"\"LED\":",            &json_LED_PWM,                     0,                IS_INT16,  &set_LED_PWM,  NONVOL_LED_PWM     },    // 20   
   { 0, 0, 0, 0, 0, 0}
 };
 

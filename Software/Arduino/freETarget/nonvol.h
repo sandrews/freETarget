@@ -28,6 +28,11 @@ void gen_position(void);        // Reset the position values
 #define NONVOL_TRIP_POINT     (NONVOL_WEST_Y      + sizeof(int) + 2)       // Trip point in mV 
 #define NONVOL_NAME_ID        (NONVOL_TRIP_POINT  + sizeof(int) + 2)       // Name Identifier
 #define NONVOL_1_RINGx10      (NONVOL_NAME_ID     + sizeof(int) + 2)       // Size of the 1 ring in mm
-
+#define NONVOL_LED_PWM        (NONVOL_1_RINGx10   + sizeof(int) + 2)       // LED PWM value
+#define NEXT_NNONVOL          (NONVOL_LED_PWM     + sizeof(int) + 2)       // Last marker
+ 
+#if ( (NEXT_NONVOL) > 4096 )
+#error OUT OF NONVOL
+#endif
 
 #endif

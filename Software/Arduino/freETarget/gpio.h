@@ -48,6 +48,9 @@ void read_timers(void);                       // Read and return the counter reg
 #define DIP_C       11
 #define DIP_D       12
 
+#define CTS_U        7
+#define RTS_U        6
+#define LED_PWM      5          // PWM Port
 #define LED_S        4
 #define LED_X        3
 #define LED_Y        2

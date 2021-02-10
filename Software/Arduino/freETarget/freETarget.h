@@ -11,7 +11,7 @@
 #ifndef _FREETARGET_H
 #define _FREETARGET_H
 
-#define SOFTWARE_VERSION "\"2.99.0 January 24, 2021\""
+#define SOFTWARE_VERSION "\"2.99.0 February 8, 2021\""
 #define REV_21    21
 #define REV_22    22
 #define REV_29    29
@@ -44,7 +44,7 @@
 //                      From DIP    From Software
 #define CALIBRATE       ((1 << 0) + (0 << (4 + 0)))     // 1 Go to Calibration Mode
 #define VERBOSE_TRACE   ((1 << 1) + (0 << (4 + 1)))     // 2 Show the verbose software trace
-#define BOSS            ((1 << 2) + (0 << (4 + 2)))     // 4 Master processor in Version 2.99
+#define BOSS            ((1 << 2) + (1 << (4 + 2)))     // 4 Master processor in Version 2.99
 #define VERSION_2       ((1 << 3) + (0 << (4 + 3)))     // 8 Override Version 2.99 programming
 //#define FACTORY         ((1 << 3) + (0 << (4 + 3)))     // 8 Reset all settings to factory defaults
 #define FACTORY         0                               // Patched out for Version 2.99

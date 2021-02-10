@@ -50,6 +50,10 @@ GPIO init_table[] = {
   {LED_S,       OUTPUT, 1},
   {LED_X,       OUTPUT, 1},
   {LED_Y,       OUTPUT, 1},
+
+  {LED_PWM,     OUTPUT, 1},
+  {RTS_U,       OUTPUT, 1},
+  {CTS_U,       INPUT_PULLUP, 0},
   
   {PAPER,       OUTPUT, 1},               // 18-Paper drive active low
   {SPARE,       OUTPUT, 1},               // 18-Paper drive active low
